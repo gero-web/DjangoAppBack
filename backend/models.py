@@ -25,9 +25,8 @@ class UserManager(BaseUserManager):
                 user = self.model(email=email, **extra_fields)
                 user.set_password(password)
                 user.save(using=self._db)
-
-                group = Group.objects.get(name='user_task')
-                user.groups.add(group)
+                
+               
                
                 return user
         except:
