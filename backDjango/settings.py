@@ -122,7 +122,7 @@ WSGI_APPLICATION = 'backDjango.wsgi.application'
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgresql-flat-12476',
+        'NAME': 'd3b90k1c9q3v6e',
         'USER' : 'asxmxenivjnbaq',
         'PASSWORD' : '896091d049a53750ae25dd2223f88fe321a74e552225bb77cceeee03f4d073d8',
         'HOST' : 'ec2-52-22-161-59.compute-1.amazonaws.com',
