@@ -40,10 +40,10 @@ class LoginSerializer(serializers.Serializer):
               password = data.get('password',None)
 
               if email is None:
-                     raise serializers.ValidationError('An email is req')
+                     raise serializers.ValidationError('Укажите email!')
                      
               if  password is None:
-                            raise serializers.ValidationError('A password')
+                            raise serializers.ValidationError('Укажите пароль!')
 
         # Метод authenticate предоставляется Django и выполняет проверку, что
         # предоставленные почта и пароль соответствуют какому-то пользователю в
@@ -53,10 +53,10 @@ class LoginSerializer(serializers.Serializer):
                      password=password)
               
               if user is None :
-                     raise serializers.ValidationError('Note users')
+                     raise serializers.ValidationError('Неправильный пользователь или пароль!')
 
               if not user.is_active:
-                     raise serializers.ValidationError('user has been deactivated')
+                     raise serializers.ValidationError('пользователь был удален!')
               
               return {
                      "email":user.email,
