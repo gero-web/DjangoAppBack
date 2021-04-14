@@ -87,7 +87,7 @@ CORS_ALLOW_METHODS = [
 
 
 AUTH_USER_MODEL = "backend.User" 
-
+ALLOWED_HOSTS=['*',]
 JWT_AUTH = {
 
     'JWT_VERIFY': True,
