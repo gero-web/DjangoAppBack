@@ -17,7 +17,7 @@ class UserManager(BaseUserManager):
     def _create_user(self, email, password, **extra_fields):
        
         if not email:
-            raise ValueError('Email is not!')
+            raise ValueError('Email не указан!')
         try:
             with transaction.atomic():
                 user = self.model(email=email, **extra_fields)
@@ -49,7 +49,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     admin-compliant permissions.
 
     """
-    email = models.EmailField(max_length=40, unique=True)
+    email = models.EmailField(max_length=40, unique=True,error_messages={'unique':"Данный email уже зарегистрирован!"})
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=30, blank=True)
     is_active = models.BooleanField(default=True)
@@ -60,7 +60,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name']
-
+    
 
     def __str__(self) -> str:
         return self.email
